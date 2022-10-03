@@ -1,0 +1,81 @@
+<?php 
+session_start();
+include '-MyConnect.php'; //connects to the database
+If($_SESSION['login'] == TRUE)// if a user is logged in
+{
+}
+else// if a user is not logged in 
+{
+   header("Location: -WelcomePage.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang = "en"> 
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="-Style.css" /> <!-- link to the stylesheet -->
+		<meta charset = "utf-8"> 
+		<title>Water Usage</title> 
+	</head>
+	
+	<body>
+	
+		<header class="header" > <!-- This is the header for this page -->
+			<h1>Smart Irrigation System - Water Usage</h1> 
+		</header>
+		
+		<div class = "nav"><!-- this links all of the pages together with links to each one-->
+			<a href="-HomePage.php">Home Page</a>
+			<a href="-Statistics.php">Statistics</a>
+			<a>Water Usage</a>
+			<a href="-ContactPage.php">Contact Page</a>
+		</div>
+		
+		<!-- The code below is a drop down box to allow the user to sign out -->
+		<div class="dropdown">
+			<button class="dropdowntext">My Account</button>
+			<div class="dropdown-content">
+				<a href='-Logout.php'>Logout</a>
+			</div>
+		</div>
+		
+		
+		<table id="box">
+			<tr>
+				<th>Amount of litres used</th> <!-- These are the heading for the table on the water usage page-->	
+				<th>Cost of the litres used</th>
+			</tr>
+			<tr>
+				<td><!-- This block of code gets the amount of water used in litres and displays it  -->
+					<p>
+						<?php
+						$query = "SELECT * FROM Project2"; // gets the amount of water used
+						$result = mysqli_query($mysqli, $query);
+						$row = mysqli_fetch_assoc($result);
+						$value = $row["Water"];
+						echo $value;
+						?> 
+					    Litres of water
+					</p>
+				</td>
+				<td><!-- This block of code gets the cost of water from the database and calculates how much has been used  -->
+					<p>
+						£
+						<?php
+						$query2 = "SELECT * FROM WaterCost"; // gets the cost of water
+						$result2 = mysqli_query($mysqli, $query2);
+						$row2 = mysqli_fetch_assoc($result2);
+						$value2 = $row2["cost"];
+						$cost = number_format(($value/1000)*$value2,2);
+						echo $cost;
+						?>
+						p
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+	</body>
+	
+</html>

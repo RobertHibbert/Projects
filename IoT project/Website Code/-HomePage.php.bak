@@ -1,0 +1,97 @@
+<?php 
+session_start();
+If($_SESSION['login'] == TRUE)
+{
+}
+else
+{
+   header("Location: -WelcomePage.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang = "en"> 
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="-Style.css" /> <!-- link to the stylesheet -->
+		<meta charset = "utf-8"> 
+		<title>Home Page</title> 
+		<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$(".hide").click(function()
+					{
+						$("k").hide();
+					});
+				$(".show").click(function()
+				{
+					$("k").show();
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function()
+			{
+				$(".hide2").click(function()
+					{
+						$("l").hide();
+					});
+				$(".show2").click(function()
+				{
+					$("l").show();
+				});
+			});
+	</script>
+	</head>
+	
+	<body>
+	
+	<header class="header" > <!-- This is the header for this page -->
+		<h1>Smart Irrigation System - Home Page</h1> 
+	</header>
+	
+	<div class = "nav"><!-- this links all of the pages together with links to each one-->
+		<a>Home Page</a>
+		<a href="-Statistics.php">Statistics</a>
+		<a href="-ContactPage.php">Contact Page</a>
+	</div>
+	
+	<!-- The code below is a drop down box to allow the user to sign out -->
+	<div class="dropdown">
+		<button class="dropdowntext">My Account</button>
+		<div class="dropdown-content">
+			<a href='logout.php'>Logout</a>
+		</div>
+	</div>
+	
+	<div class="barleft">
+		<div ><h3 class="heading3">Advert:</h3></div>
+		<k><td> <img class = "img" src="add1.jpeg" alt="add" width="100%" height="20%"> </td></k>
+		<button class="hide">hide</button>
+		<button class="show">show!</button>
+	</div>
+	<div class="barright">
+		<div ><h3 class="heading3">Advert:</h3></div>
+		<l><td> <img class = "img" src="add2.jpg" alt="add" width="100%" height="20%"> </td></l>
+		<button class="hide2">hide</button>
+		<button class="show2">show!</button>
+	</div>
+	
+		<table id="hometext"> 
+		<tr>
+			<th>Welcome</th> <!-- These are the headings for the text on the home page-->	
+			<th>News today</th>
+		</tr>
+	    <tr>
+			<td><p> Welcome to the Smart Irrigation System home page</p></td>
+			<td><p> add here</p></td>
+		</tr>
+	</table>
+	
+	
+	</table>
+	
+	</body>
+	
+</html>

@@ -1,0 +1,61 @@
+<?php 
+session_start();
+include '-MyConnect.php'; //connects to the database
+If($_SESSION['login'] == TRUE)// if a user is logged in
+{
+}
+else// if a user is not logged in 
+{
+   header("Location: -WelcomePage.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang = "en"> 
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="-Style.css" /> <!-- link to the stylesheet -->
+		<meta charset = "utf-8"> 
+		<title>Contact Page</title> 
+	</head>
+	
+	<body>
+	
+		<header class="header" > <!-- This is the header for this page -->
+			<h1>Smart Irrigation System - Contact Page</h1> 
+		</header>
+		
+		<div class = "nav"><!-- this links all of the pages together with links to each one-->
+			<a href="-HomePage.php">Home Page</a>
+			<a href="-Statistics.php">Statistics</a>
+			<a href="-WaterUsage.php">Water Usage</a>
+			<a>Contact Page</a>
+		</div>
+		
+		<!-- The code below is a drop down box to allow the user to sign out -->
+		<div class="dropdown">
+			<button class="dropdowntext">My Account</button>
+			<div class="dropdown-content">
+				<a href='-Logout.php'>Logout</a>
+			</div>
+		</div>
+		
+		<table id="box">
+			<tr>
+				<th>Contact Information</th> <!-- heading for the contact information-->	
+			</tr>
+			<tr>
+				<td>
+					<p>
+						Email: rthibbert@uclan.ac.uk
+						<br>
+						Telephone: 01553782644
+					</p>
+				</td>
+
+			</tr>
+		</table>
+		
+		
+	</body>
+</html>
